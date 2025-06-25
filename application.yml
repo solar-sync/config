@@ -1,0 +1,11 @@
+# solarsync-config/application.yml
+
+spring:
+  profiles:
+    active: dev
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: WARN
+    org.hibernate: ERROR
