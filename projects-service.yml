@@ -1,0 +1,29 @@
+# solarsync-config/projects-service.yml
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: projects-service
+
+  datasource:
+    url: jdbc:h2:mem:solarsyncdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+
+logging:
+  level:
+    root: INFO
+    com.solarsync.projects: DEBUG
