@@ -1,0 +1,25 @@
+# solarsync-config/api-gateway.yml
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: projects-service
+          uri: lb://projects-service
+          predicates:
+            - Path=/projects/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
